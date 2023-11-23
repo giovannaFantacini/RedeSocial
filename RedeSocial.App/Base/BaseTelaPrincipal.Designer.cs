@@ -29,62 +29,35 @@ namespace RedeSocial.App
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseTelaPrincipal));
-            panel1 = new System.Windows.Forms.Panel();
-            materialTabControl1 = new MaterialTabControl();
-            profile = new System.Windows.Forms.TabPage();
-            btnAddPost = new MaterialButton();
-            home = new System.Windows.Forms.TabPage();
             imageList1 = new ImageList(components);
-            tabPage1 = new System.Windows.Forms.TabPage();
+            btnAddPost = new MaterialButton();
+            panel1 = new System.Windows.Forms.Panel();
+            PagFriends = new TabControl();
+            profile = new System.Windows.Forms.TabPage();
+            flowLayoutPanelProfile = new FlowLayoutPanel();
+            label_name = new CrownLabel();
+            home = new System.Windows.Forms.TabPage();
+            flowLayoutPanel = new FlowLayoutPanel();
+            friends = new System.Windows.Forms.TabPage();
+            flowLayoutPanelFriends = new FlowLayoutPanel();
+            bigLabel1 = new BigLabel();
             panel1.SuspendLayout();
-            materialTabControl1.SuspendLayout();
+            PagFriends.SuspendLayout();
             profile.SuspendLayout();
+            home.SuspendLayout();
+            friends.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // imageList1
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.BackgroundImageLayout = ImageLayout.Center;
-            panel1.Controls.Add(materialTabControl1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 64);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(950, 607);
-            panel1.TabIndex = 0;
-            // 
-            // materialTabControl1
-            // 
-            materialTabControl1.Controls.Add(profile);
-            materialTabControl1.Controls.Add(home);
-            materialTabControl1.Controls.Add(tabPage1);
-            materialTabControl1.Depth = 0;
-            materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.ImageList = imageList1;
-            materialTabControl1.Location = new Point(0, 0);
-            materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialTabControl1.Multiline = true;
-            materialTabControl1.Name = "materialTabControl1";
-            materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(950, 607);
-            materialTabControl1.SizeMode = TabSizeMode.FillToRight;
-            materialTabControl1.TabIndex = 0;
-            // 
-            // profile
-            // 
-            profile.AllowDrop = true;
-            profile.Controls.Add(btnAddPost);
-            profile.Location = new Point(4, 29);
-            profile.Name = "profile";
-            profile.Padding = new Padding(3);
-            profile.Size = new Size(942, 574);
-            profile.TabIndex = 0;
-            profile.Text = "Profile";
-            profile.UseVisualStyleBackColor = true;
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "home.png");
             // 
             // btnAddPost
             // 
-            btnAddPost.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAddPost.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddPost.AutoSize = false;
             btnAddPost.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAddPost.CharacterCasing = MaterialButton.CharacterCasingEnum.Normal;
@@ -94,7 +67,7 @@ namespace RedeSocial.App
             btnAddPost.HighEmphasis = true;
             btnAddPost.Icon = null;
             btnAddPost.IconType = MaterialButton.MaterialIconType.Rebase;
-            btnAddPost.Location = new Point(673, 45);
+            btnAddPost.Location = new Point(745, 22);
             btnAddPost.Margin = new Padding(5, 8, 5, 8);
             btnAddPost.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPost.Name = "btnAddPost";
@@ -107,34 +80,118 @@ namespace RedeSocial.App
             btnAddPost.UseVisualStyleBackColor = true;
             btnAddPost.Click += btnAddPost_Click_1;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImageLayout = ImageLayout.Center;
+            panel1.Controls.Add(PagFriends);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(2, 64);
+            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(952, 608);
+            panel1.TabIndex = 0;
+            // 
+            // PagFriends
+            // 
+            PagFriends.Controls.Add(profile);
+            PagFriends.Controls.Add(home);
+            PagFriends.Controls.Add(friends);
+            PagFriends.Dock = DockStyle.Fill;
+            PagFriends.Location = new Point(0, 0);
+            PagFriends.Margin = new Padding(2);
+            PagFriends.Name = "PagFriends";
+            PagFriends.SelectedIndex = 0;
+            PagFriends.Size = new Size(952, 608);
+            PagFriends.TabIndex = 25;
+            // 
+            // profile
+            // 
+            profile.Controls.Add(flowLayoutPanelProfile);
+            profile.Controls.Add(label_name);
+            profile.Controls.Add(btnAddPost);
+            profile.Location = new Point(4, 29);
+            profile.Margin = new Padding(2);
+            profile.Name = "profile";
+            profile.Padding = new Padding(2);
+            profile.Size = new Size(944, 575);
+            profile.TabIndex = 0;
+            profile.Text = "Profile";
+            profile.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelProfile
+            // 
+            flowLayoutPanelProfile.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanelProfile.Location = new Point(2, 78);
+            flowLayoutPanelProfile.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanelProfile.Name = "flowLayoutPanelProfile";
+            flowLayoutPanelProfile.Size = new Size(937, 492);
+            flowLayoutPanelProfile.TabIndex = 23;
+            // 
+            // label_name
+            // 
+            label_name.AutoSize = true;
+            label_name.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label_name.ForeColor = Color.Black;
+            label_name.Location = new Point(202, 22);
+            label_name.Margin = new Padding(2, 0, 2, 0);
+            label_name.Name = "label_name";
+            label_name.Size = new Size(0, 50);
+            label_name.TabIndex = 22;
+            // 
             // home
             // 
-            home.AllowDrop = true;
-            home.ImeMode = ImeMode.Off;
+            home.Controls.Add(flowLayoutPanel);
             home.Location = new Point(4, 29);
+            home.Margin = new Padding(2);
             home.Name = "home";
-            home.Padding = new Padding(3);
-            home.Size = new Size(942, 574);
+            home.Padding = new Padding(2);
+            home.Size = new Size(944, 575);
             home.TabIndex = 1;
             home.Text = "Home";
             home.UseVisualStyleBackColor = true;
             // 
-            // imageList1
+            // flowLayoutPanel
             // 
-            imageList1.ColorDepth = ColorDepth.Depth8Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "home.png");
+            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.Location = new Point(2, 2);
+            flowLayoutPanel.Margin = new Padding(2);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(940, 571);
+            flowLayoutPanel.TabIndex = 0;
             // 
-            // tabPage1
+            // friends
             // 
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(942, 574);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            friends.Controls.Add(flowLayoutPanelFriends);
+            friends.Controls.Add(bigLabel1);
+            friends.Location = new Point(4, 29);
+            friends.Margin = new Padding(2);
+            friends.Name = "friends";
+            friends.Size = new Size(944, 575);
+            friends.TabIndex = 2;
+            friends.Text = "New Friends";
+            friends.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelFriends
+            // 
+            flowLayoutPanelFriends.Location = new Point(0, 70);
+            flowLayoutPanelFriends.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanelFriends.Name = "flowLayoutPanelFriends";
+            flowLayoutPanelFriends.Size = new Size(941, 502);
+            flowLayoutPanelFriends.TabIndex = 2;
+            // 
+            // bigLabel1
+            // 
+            bigLabel1.AutoSize = true;
+            bigLabel1.BackColor = Color.Transparent;
+            bigLabel1.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            bigLabel1.ForeColor = Color.FromArgb(80, 80, 80);
+            bigLabel1.Location = new Point(18, 9);
+            bigLabel1.Margin = new Padding(2, 0, 2, 0);
+            bigLabel1.Name = "bigLabel1";
+            bigLabel1.Size = new Size(347, 57);
+            bigLabel1.TabIndex = 1;
+            bigLabel1.Text = "Find New Friends";
             // 
             // BaseTelaPrincipal
             // 
@@ -145,25 +202,35 @@ namespace RedeSocial.App
             ClientSize = new Size(956, 674);
             Controls.Add(panel1);
             IsMdiContainer = true;
-            Margin = new Padding(4);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "BaseTelaPrincipal";
+            Padding = new Padding(2, 64, 2, 2);
             Text = "Rede Social";
             TransparencyKey = Color.White;
             WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
-            materialTabControl1.ResumeLayout(false);
+            PagFriends.ResumeLayout(false);
             profile.ResumeLayout(false);
+            profile.PerformLayout();
+            home.ResumeLayout(false);
+            friends.ResumeLayout(false);
+            friends.PerformLayout();
             ResumeLayout(false);
         }
 
         private HopeTextBox email;
         private HopeTextBox password;
-        private System.Windows.Forms.Panel panel1;
         private ImageList imageList1;
-        private MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.TabPage profile;
-        private System.Windows.Forms.TabPage home;
         private MaterialButton btnAddPost;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel1;
+        private TabControl PagFriends;
+        private System.Windows.Forms.TabPage profile;
+        private CrownLabel label_name;
+        private System.Windows.Forms.TabPage home;
+        private System.Windows.Forms.TabPage friends;
+        private BigLabel bigLabel1;
+        private FlowLayoutPanel flowLayoutPanel;
+        private FlowLayoutPanel flowLayoutPanelProfile;
+        private FlowLayoutPanel flowLayoutPanelFriends;
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RedeSocial.App;
+using RedeSocial.App.Componentes;
 using RedeSocial.App.Login;
 using RedeSocial.App.Model;
 using RedeSocial.App.Models;
@@ -10,7 +11,6 @@ using RedeSocial.Domain.Entities;
 using RedeSocial.Repository.Context;
 using RedeSocial.Repository.Repository;
 using RedeSocial.Service.Services;
-using RedeSocial.App.Home;
 
 namespace RedeSocial.App.Infra
 {
@@ -56,9 +56,9 @@ namespace RedeSocial.App.Infra
             // Formulários
             Services.AddTransient<Cadastro, Cadastro>();
             Services.AddTransient<Login.Login, Login.Login>();
-            Services.AddTransient<Home.Home, Home.Home>();
             Services.AddTransient<BaseTelaPrincipal, BaseTelaPrincipal>();
             Services.AddTransient<InputDialogPost, InputDialogPost>();
+            Services.AddTransient<InputComent, InputComent>();
 
             // Mapping
             Services.AddSingleton(new MapperConfiguration(config =>

@@ -17,7 +17,6 @@ namespace RedeSocial.Repository.Mappings
                 .HasColumnType("varchar(50)");
 
             builder.Property(prop => prop.NomeCompleto)
-                .IsRequired()
                 .HasColumnType("varchar(100)");
 
             builder.Property(prop => prop.DataDeRegistro)

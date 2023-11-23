@@ -202,7 +202,7 @@ namespace RedeSocial.App.Login
             password.MaxLength = 128;
             password.Multiline = false;
             password.Name = "password";
-            password.PasswordChar = '\0';
+            password.PasswordChar = '*';
             password.ScrollBars = ScrollBars.None;
             password.SelectedText = "";
             password.SelectionLength = 0;

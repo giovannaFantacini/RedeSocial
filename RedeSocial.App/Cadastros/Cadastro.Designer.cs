@@ -29,8 +29,6 @@
             panel1 = new Panel();
             parrotFormHandle2 = new ReaLTaiizor.Controls.ParrotFormHandle();
             panel2 = new Panel();
-            hopePictureBox3 = new ReaLTaiizor.Controls.HopePictureBox();
-            hopePictureBox2 = new ReaLTaiizor.Controls.HopePictureBox();
             lastName = new ReaLTaiizor.Controls.HopeTextBox();
             userName = new ReaLTaiizor.Controls.HopeTextBox();
             email = new ReaLTaiizor.Controls.HopeTextBox();
@@ -41,8 +39,6 @@
             firstName = new ReaLTaiizor.Controls.HopeTextBox();
             hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -75,8 +71,6 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(4, 12, 45);
-            panel2.Controls.Add(hopePictureBox3);
-            panel2.Controls.Add(hopePictureBox2);
             panel2.Controls.Add(lastName);
             panel2.Controls.Add(userName);
             panel2.Controls.Add(email);
@@ -92,39 +86,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(962, 674);
             panel2.TabIndex = 1;
-            // 
-            // hopePictureBox3
-            // 
-            hopePictureBox3.Anchor = AnchorStyles.Top;
-            hopePictureBox3.BackColor = Color.Transparent;
-            hopePictureBox3.Enabled = false;
-            hopePictureBox3.Image = (Image)resources.GetObject("hopePictureBox3.Image");
-            hopePictureBox3.Location = new Point(13, 13);
-            hopePictureBox3.Margin = new Padding(4);
-            hopePictureBox3.Name = "hopePictureBox3";
-            hopePictureBox3.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopePictureBox3.Size = new Size(42, 33);
-            hopePictureBox3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            hopePictureBox3.TabIndex = 27;
-            hopePictureBox3.TabStop = false;
-            hopePictureBox3.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            hopePictureBox3.Click += hopePictureBox3_Click;
-            // 
-            // hopePictureBox2
-            // 
-            hopePictureBox2.Anchor = AnchorStyles.Top;
-            hopePictureBox2.BackColor = Color.Transparent;
-            hopePictureBox2.Enabled = false;
-            hopePictureBox2.Image = (Image)resources.GetObject("hopePictureBox2.Image");
-            hopePictureBox2.Location = new Point(115, 458);
-            hopePictureBox2.Margin = new Padding(4);
-            hopePictureBox2.Name = "hopePictureBox2";
-            hopePictureBox2.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopePictureBox2.Size = new Size(101, 101);
-            hopePictureBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            hopePictureBox2.TabIndex = 26;
-            hopePictureBox2.TabStop = false;
-            hopePictureBox2.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // lastName
             // 
@@ -249,7 +210,7 @@
             btnSalvar.HighEmphasis = true;
             btnSalvar.Icon = null;
             btnSalvar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvar.Location = new Point(706, 596);
+            btnSalvar.Location = new Point(706, 541);
             btnSalvar.Margin = new Padding(5, 8, 5, 8);
             btnSalvar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvar.Name = "btnSalvar";
@@ -277,7 +238,7 @@
             password.MaxLength = 128;
             password.Multiline = false;
             password.Name = "password";
-            password.PasswordChar = '\0';
+            password.PasswordChar = '*';
             password.ScrollBars = ScrollBars.None;
             password.SelectedText = "";
             password.SelectionLength = 0;
@@ -343,8 +304,6 @@
             TransparencyKey = Color.Fuchsia;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)hopePictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -364,7 +323,5 @@
         private ReaLTaiizor.Controls.HopeTextBox userName;
         private ReaLTaiizor.Controls.HopeTextBox email;
         private ReaLTaiizor.Controls.HopeTextBox lastName;
-        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox2;
-        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox3;
     }
 }

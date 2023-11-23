@@ -18,6 +18,10 @@ namespace RedeSocial.App.Login
         {
             _usuarioService = usuarioService;
             InitializeComponent();
+            #if DEBUG
+            email.Text = @"giovanna@mail.com";
+            password.Text = @"123";
+            #endif
         }
 
         private void Exibeformulario<TFormlario>() where TFormlario : Form
@@ -65,7 +69,7 @@ namespace RedeSocial.App.Login
                 DialogResult = DialogResult.OK;
                 Close();
             }
-          //  Exibeformulario<BaseTelaPrincipal>();
+            //  Exibeformulario<BaseTelaPrincipal>();
 
         }
 

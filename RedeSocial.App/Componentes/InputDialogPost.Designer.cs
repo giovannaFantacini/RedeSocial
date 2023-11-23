@@ -45,7 +45,8 @@
             postText.HideSelection = true;
             postText.Hint = "What's happening?";
             postText.LeadingIcon = null;
-            postText.Location = new Point(22, 103);
+            postText.Location = new Point(19, 77);
+            postText.Margin = new Padding(3, 2, 3, 2);
             postText.MaxLength = 32767;
             postText.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             postText.Name = "postText";
@@ -57,7 +58,7 @@
             postText.SelectionLength = 0;
             postText.SelectionStart = 0;
             postText.ShortcutsEnabled = true;
-            postText.Size = new Size(360, 48);
+            postText.Size = new Size(315, 48);
             postText.TabIndex = 0;
             postText.TabStop = false;
             postText.TextAlign = HorizontalAlignment.Left;
@@ -75,12 +76,12 @@
             btnPost.HighEmphasis = true;
             btnPost.Icon = null;
             btnPost.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnPost.Location = new Point(291, 221);
-            btnPost.Margin = new Padding(5, 8, 5, 8);
+            btnPost.Location = new Point(255, 166);
+            btnPost.Margin = new Padding(4, 6, 4, 6);
             btnPost.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnPost.Name = "btnPost";
             btnPost.NoAccentTextColor = Color.Empty;
-            btnPost.Size = new Size(91, 37);
+            btnPost.Size = new Size(80, 28);
             btnPost.TabIndex = 20;
             btnPost.Text = "Post";
             btnPost.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -96,8 +97,8 @@
             btnCancel.HighEmphasis = true;
             btnCancel.Icon = null;
             btnCancel.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancel.Location = new Point(174, 221);
-            btnCancel.Margin = new Padding(4, 6, 4, 6);
+            btnCancel.Location = new Point(152, 166);
+            btnCancel.Margin = new Padding(4, 4, 4, 4);
             btnCancel.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancel.Name = "btnCancel";
             btnCancel.NoAccentTextColor = Color.Empty;
@@ -111,15 +112,17 @@
             // 
             // InputDialogPost
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
-            ClientSize = new Size(421, 299);
+            ClientSize = new Size(368, 224);
             Controls.Add(btnCancel);
             Controls.Add(btnPost);
             Controls.Add(postText);
             ForeColor = Color.WhiteSmoke;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "InputDialogPost";
+            Padding = new Padding(3, 48, 3, 2);
             Text = "New Post";
             TransparencyKey = Color.FromArgb(64, 64, 64);
             ResumeLayout(false);

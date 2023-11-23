@@ -3,7 +3,7 @@ namespace RedeSocial.App.Models
 {
     public class PostagemModel
     {
-        public string nameUsuario { get; set; }
+        public string? nameUsuario { get; set; }
         public string? TextoDaPostagem { get; set; }
         public DateTime DataHoraPostagem { get; set; }
     }
