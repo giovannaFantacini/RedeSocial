@@ -192,21 +192,21 @@ namespace RedeSocial.App
 
         }
 
-        private bool VerificaAmizade(Usuario user)
+        private Amizade VerificaAmizade(Usuario user)
         {
             var amizades = _amizadeService.Get<Amizade>(new[] { "Usuario1", "Usuario2" }).Where(x => x.Usuario1!.Id == Usuario.Id).ToList();
             if (amizades is null)
             {
-                return false;
+                return null;
             }
             foreach (var amizade in amizades)
             {
                 if (user.Id == amizade.Usuario2!.Id)
                 {
-                    return true;
+                    return amizade;
                 }
             }
-            return false;
+            return null;
         }
 
         private void InicializaFriendsPage()
@@ -215,20 +215,43 @@ namespace RedeSocial.App
             var usuarios = _usuarioService.Get<Usuario>().Where(x => x.Id != Usuario.Id).ToList();
             foreach (var usuario in usuarios)
             {
-                if (!VerificaAmizade(usuario))
+                Amizade amizade_user = VerificaAmizade(usuario);
+
+                if (amizade_user == null)
                 {
 
                     Componentes.ComponenteAmizade amizade = new Componentes.ComponenteAmizade();
                     amizade.lblUserName.Text = usuario.NomeUsuario;
                     amizade.btnAddFriend.Tag = usuario;
                     amizade.btnAddFriend.Click += Add_friend;
+                    amizade.btnRemove.Visible = false;
 
                     flowLayoutPanelFriends.Controls.Add(amizade);
 
                 }
+                else
+                {
+                    Componentes.ComponenteAmizade amizade = new Componentes.ComponenteAmizade();
+                    amizade.lblUserName.Text = usuario.NomeUsuario;
+                    amizade.btnRemove.Tag = amizade_user;
+                    amizade.btnRemove.Click += Remove_friend;
+                    amizade.btnAddFriend.Visible = false;
+
+                    PanelMyFriends.Controls.Add(amizade);
+                }
 
 
             }
+        }
+
+        private void Remove_friend(object? sender, EventArgs e)
+        {
+            var amizade = (Amizade)((MaterialButton)sender).Tag;
+
+            _amizadeService.Delete(amizade.Id);
+
+            limpa_pagina(PanelMyFriends);
+            InicializaFriendsPage();
         }
 
         private void limpa_pagina(FlowLayoutPanel fl)
@@ -251,7 +274,7 @@ namespace RedeSocial.App
                 _amizadeService.Add<Amizade, Amizade, AmizadeValidator>(amizade);
 
                 limpa_pagina(flowLayoutPanelFriends);
-                InicializarFriendsView();
+                InicializaFriendsPage();
 
             }
             catch (Exception ex)
@@ -261,10 +284,6 @@ namespace RedeSocial.App
 
         }
 
-        private void InicializarFriendsView()
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
