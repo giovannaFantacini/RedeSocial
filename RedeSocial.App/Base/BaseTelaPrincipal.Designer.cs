@@ -34,6 +34,7 @@ namespace RedeSocial.App
             panel1 = new System.Windows.Forms.Panel();
             Pages = new TabControl();
             profile = new System.Windows.Forms.TabPage();
+            pictureBoxUser = new PictureBox();
             flowLayoutPanelProfile = new FlowLayoutPanel();
             label_name = new CrownLabel();
             home = new System.Windows.Forms.TabPage();
@@ -47,6 +48,7 @@ namespace RedeSocial.App
             panel1.SuspendLayout();
             Pages.SuspendLayout();
             profile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUser).BeginInit();
             home.SuspendLayout();
             friends.SuspendLayout();
             myfriendspage.SuspendLayout();
@@ -75,12 +77,12 @@ namespace RedeSocial.App
             btnAddPost.HighEmphasis = true;
             btnAddPost.Icon = null;
             btnAddPost.IconType = MaterialButton.MaterialIconType.Rebase;
-            btnAddPost.Location = new Point(745, 22);
-            btnAddPost.Margin = new Padding(5, 8, 5, 8);
+            btnAddPost.Location = new Point(595, 18);
+            btnAddPost.Margin = new Padding(4, 6, 4, 6);
             btnAddPost.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPost.Name = "btnAddPost";
             btnAddPost.NoAccentTextColor = Color.Empty;
-            btnAddPost.Size = new Size(181, 48);
+            btnAddPost.Size = new Size(145, 38);
             btnAddPost.TabIndex = 20;
             btnAddPost.Text = "New Post";
             btnAddPost.Type = MaterialButton.MaterialButtonType.Contained;
@@ -94,10 +96,9 @@ namespace RedeSocial.App
             panel1.BackgroundImageLayout = ImageLayout.Center;
             panel1.Controls.Add(Pages);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(2, 64);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(2, 51);
             panel1.Name = "panel1";
-            panel1.Size = new Size(952, 608);
+            panel1.Size = new Size(761, 486);
             panel1.TabIndex = 0;
             // 
             // Pages
@@ -112,31 +113,40 @@ namespace RedeSocial.App
             Pages.Margin = new Padding(2);
             Pages.Name = "Pages";
             Pages.SelectedIndex = 0;
-            Pages.Size = new Size(952, 608);
+            Pages.Size = new Size(761, 486);
             Pages.TabIndex = 25;
             // 
             // profile
             // 
+            profile.Controls.Add(pictureBoxUser);
             profile.Controls.Add(flowLayoutPanelProfile);
             profile.Controls.Add(label_name);
             profile.Controls.Add(btnAddPost);
             profile.ImageKey = "user (5).png";
-            profile.Location = new Point(4, 29);
+            profile.Location = new Point(4, 24);
             profile.Margin = new Padding(2);
             profile.Name = "profile";
             profile.Padding = new Padding(2);
-            profile.Size = new Size(944, 575);
+            profile.Size = new Size(753, 458);
             profile.TabIndex = 0;
             profile.Text = "Profile";
             profile.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxUser
+            // 
+            pictureBoxUser.Location = new Point(19, 10);
+            pictureBoxUser.Name = "pictureBoxUser";
+            pictureBoxUser.Size = new Size(67, 58);
+            pictureBoxUser.TabIndex = 24;
+            pictureBoxUser.TabStop = false;
+            // 
             // flowLayoutPanelProfile
             // 
             flowLayoutPanelProfile.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanelProfile.Location = new Point(2, 82);
-            flowLayoutPanelProfile.Margin = new Padding(4);
+            flowLayoutPanelProfile.AutoScroll = true;
+            flowLayoutPanelProfile.Location = new Point(2, 93);
             flowLayoutPanelProfile.Name = "flowLayoutPanelProfile";
-            flowLayoutPanelProfile.Size = new Size(937, 488);
+            flowLayoutPanelProfile.Size = new Size(749, 363);
             flowLayoutPanelProfile.TabIndex = 23;
             // 
             // label_name
@@ -144,32 +154,34 @@ namespace RedeSocial.App
             label_name.AutoSize = true;
             label_name.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
             label_name.ForeColor = Color.Black;
-            label_name.Location = new Point(202, 22);
+            label_name.Location = new Point(108, 18);
             label_name.Margin = new Padding(2, 0, 2, 0);
             label_name.Name = "label_name";
-            label_name.Size = new Size(0, 50);
+            label_name.Size = new Size(104, 41);
             label_name.TabIndex = 22;
+            label_name.Text = "Label1";
             // 
             // home
             // 
             home.Controls.Add(flowLayoutPanel);
             home.ImageKey = "home_24.png";
-            home.Location = new Point(4, 29);
+            home.Location = new Point(4, 24);
             home.Margin = new Padding(2);
             home.Name = "home";
             home.Padding = new Padding(2);
-            home.Size = new Size(944, 575);
+            home.Size = new Size(753, 458);
             home.TabIndex = 1;
             home.Text = "Home";
             home.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel
             // 
-            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel.AutoScroll = true;
             flowLayoutPanel.Location = new Point(2, 2);
             flowLayoutPanel.Margin = new Padding(2);
             flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Size = new Size(940, 571);
+            flowLayoutPanel.Size = new Size(749, 454);
             flowLayoutPanel.TabIndex = 0;
             // 
             // friends
@@ -177,20 +189,21 @@ namespace RedeSocial.App
             friends.Controls.Add(flowLayoutPanelFriends);
             friends.Controls.Add(bigLabel1);
             friends.ImageKey = "add-friend.png";
-            friends.Location = new Point(4, 29);
+            friends.Location = new Point(4, 24);
             friends.Margin = new Padding(2);
             friends.Name = "friends";
-            friends.Size = new Size(944, 575);
+            friends.Size = new Size(753, 458);
             friends.TabIndex = 2;
             friends.Text = "New Friends";
             friends.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanelFriends
             // 
-            flowLayoutPanelFriends.Location = new Point(0, 70);
-            flowLayoutPanelFriends.Margin = new Padding(4);
+            flowLayoutPanelFriends.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanelFriends.AutoScroll = true;
+            flowLayoutPanelFriends.Location = new Point(0, 56);
             flowLayoutPanelFriends.Name = "flowLayoutPanelFriends";
-            flowLayoutPanelFriends.Size = new Size(941, 502);
+            flowLayoutPanelFriends.Size = new Size(753, 402);
             flowLayoutPanelFriends.TabIndex = 2;
             // 
             // bigLabel1
@@ -199,10 +212,10 @@ namespace RedeSocial.App
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
             bigLabel1.ForeColor = Color.FromArgb(80, 80, 80);
-            bigLabel1.Location = new Point(18, 9);
+            bigLabel1.Location = new Point(14, 7);
             bigLabel1.Margin = new Padding(2, 0, 2, 0);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(347, 57);
+            bigLabel1.Size = new Size(278, 46);
             bigLabel1.TabIndex = 1;
             bigLabel1.Text = "Find New Friends";
             // 
@@ -211,9 +224,10 @@ namespace RedeSocial.App
             myfriendspage.Controls.Add(bigLabel2);
             myfriendspage.Controls.Add(PanelMyFriends);
             myfriendspage.ImageKey = "amigos.png";
-            myfriendspage.Location = new Point(4, 29);
+            myfriendspage.Location = new Point(4, 24);
+            myfriendspage.Margin = new Padding(2);
             myfriendspage.Name = "myfriendspage";
-            myfriendspage.Size = new Size(944, 575);
+            myfriendspage.Size = new Size(753, 458);
             myfriendspage.TabIndex = 3;
             myfriendspage.Text = "My Friends";
             myfriendspage.UseVisualStyleBackColor = true;
@@ -224,31 +238,34 @@ namespace RedeSocial.App
             bigLabel2.BackColor = Color.Transparent;
             bigLabel2.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
             bigLabel2.ForeColor = Color.FromArgb(80, 80, 80);
-            bigLabel2.Location = new Point(33, 10);
+            bigLabel2.Location = new Point(26, 8);
+            bigLabel2.Margin = new Padding(2, 0, 2, 0);
             bigLabel2.Name = "bigLabel2";
-            bigLabel2.Size = new Size(230, 57);
+            bigLabel2.Size = new Size(184, 46);
             bigLabel2.TabIndex = 1;
             bigLabel2.Text = "My Friends";
             // 
             // PanelMyFriends
             // 
-            PanelMyFriends.Location = new Point(3, 81);
+            PanelMyFriends.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelMyFriends.AutoScroll = true;
+            PanelMyFriends.Location = new Point(2, 65);
+            PanelMyFriends.Margin = new Padding(2);
             PanelMyFriends.Name = "PanelMyFriends";
-            PanelMyFriends.Size = new Size(938, 491);
+            PanelMyFriends.Size = new Size(750, 393);
             PanelMyFriends.TabIndex = 0;
             // 
             // BaseTelaPrincipal
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(956, 674);
+            ClientSize = new Size(765, 539);
             Controls.Add(panel1);
             IsMdiContainer = true;
-            Margin = new Padding(4);
             Name = "BaseTelaPrincipal";
-            Padding = new Padding(2, 64, 2, 2);
+            Padding = new Padding(2, 51, 2, 2);
             Text = "Rede Social";
             TransparencyKey = Color.White;
             WindowState = FormWindowState.Maximized;
@@ -256,6 +273,7 @@ namespace RedeSocial.App
             Pages.ResumeLayout(false);
             profile.ResumeLayout(false);
             profile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUser).EndInit();
             home.ResumeLayout(false);
             friends.ResumeLayout(false);
             friends.PerformLayout();
@@ -281,5 +299,6 @@ namespace RedeSocial.App
         private System.Windows.Forms.TabPage myfriendspage;
         private FlowLayoutPanel PanelMyFriends;
         private BigLabel bigLabel2;
+        private PictureBox pictureBoxUser;
     }
 }

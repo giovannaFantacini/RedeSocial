@@ -126,6 +126,7 @@
             Controls.Add(comentText);
             Controls.Add(flowLayoutPanel);
             Name = "InputComent";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Comments";
             ResumeLayout(false);
             PerformLayout();

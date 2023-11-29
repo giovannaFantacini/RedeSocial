@@ -47,6 +47,11 @@ namespace RedeSocial.App.Componentes
             coment.Postagem = Post;
         }
 
+        private void limpa_pagina(FlowLayoutPanel fl)
+        {
+            fl.Controls.Clear();
+        }
+
         private void btnPost_Click(object sender, EventArgs e)
         {
             try
@@ -54,9 +59,8 @@ namespace RedeSocial.App.Componentes
                 var comentario = new Comentario();
                 PreencheObjeto(comentario);
                 _comentService.Add<Comentario, Comentario, ComentarioValidator>(comentario);
-
-
-                Close();
+                limpa_pagina(flowLayoutPanel);
+                InicializeComentsPage();
 
             }
             catch (Exception ex)

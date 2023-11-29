@@ -15,6 +15,16 @@ namespace RedeSocial.App.Componentes
         public ComponentePostagem()
         {
             InitializeComponent();
+            CarregarImagemRedimensionada();
         }
+
+        private void CarregarImagemRedimensionada()
+        {
+            Image imagemOriginal = Image.FromFile("C:/Users/Giova/OneDrive - ifsp.edu.br/Imagens/Profile/imgPadrao.jpg");
+            Image imagemRedimensionada = Service.ImageService.RedimensionarImagem(imagemOriginal, pictureBox.Width, pictureBox.Height);
+            pictureBox.Image = imagemRedimensionada;
+        }
+
+
     }
 }

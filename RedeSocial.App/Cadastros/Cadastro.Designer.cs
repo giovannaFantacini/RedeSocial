@@ -29,6 +29,9 @@
             panel1 = new Panel();
             parrotFormHandle2 = new ReaLTaiizor.Controls.ParrotFormHandle();
             panel2 = new Panel();
+            btnCancel = new ReaLTaiizor.Controls.MaterialButton();
+            pictureBox = new PictureBox();
+            btnProfilePicture = new ReaLTaiizor.Controls.MaterialButton();
             lastName = new ReaLTaiizor.Controls.HopeTextBox();
             userName = new ReaLTaiizor.Controls.HopeTextBox();
             email = new ReaLTaiizor.Controls.HopeTextBox();
@@ -39,6 +42,7 @@
             firstName = new ReaLTaiizor.Controls.HopeTextBox();
             hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -57,10 +61,9 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(962, 0);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(770, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(4, 674);
+            panel1.Size = new Size(3, 539);
             panel1.TabIndex = 0;
             // 
             // parrotFormHandle2
@@ -71,6 +74,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(4, 12, 45);
+            panel2.Controls.Add(btnCancel);
+            panel2.Controls.Add(pictureBox);
+            panel2.Controls.Add(btnProfilePicture);
             panel2.Controls.Add(lastName);
             panel2.Controls.Add(userName);
             panel2.Controls.Add(email);
@@ -82,10 +88,63 @@
             panel2.Controls.Add(hopePictureBox1);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(962, 674);
+            panel2.Size = new Size(770, 539);
             panel2.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancel.AutoSize = false;
+            btnCancel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCancel.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCancel.Depth = 0;
+            btnCancel.HighEmphasis = true;
+            btnCancel.Icon = null;
+            btnCancel.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnCancel.Location = new Point(406, 476);
+            btnCancel.Margin = new Padding(4, 6, 4, 6);
+            btnCancel.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCancel.Name = "btnCancel";
+            btnCancel.NoAccentTextColor = Color.Empty;
+            btnCancel.Size = new Size(151, 36);
+            btnCancel.TabIndex = 28;
+            btnCancel.Text = "Cancel";
+            btnCancel.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCancel.UseAccentColor = false;
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // pictureBox
+            // 
+            pictureBox.Location = new Point(83, 363);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new Size(107, 95);
+            pictureBox.TabIndex = 27;
+            pictureBox.TabStop = false;
+            // 
+            // btnProfilePicture
+            // 
+            btnProfilePicture.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnProfilePicture.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnProfilePicture.Depth = 0;
+            btnProfilePicture.HighEmphasis = true;
+            btnProfilePicture.Icon = null;
+            btnProfilePicture.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnProfilePicture.Location = new Point(45, 476);
+            btnProfilePicture.Margin = new Padding(4, 6, 4, 6);
+            btnProfilePicture.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnProfilePicture.Name = "btnProfilePicture";
+            btnProfilePicture.NoAccentTextColor = Color.Empty;
+            btnProfilePicture.Size = new Size(182, 36);
+            btnProfilePicture.TabIndex = 26;
+            btnProfilePicture.Text = "Upload Your Picture";
+            btnProfilePicture.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnProfilePicture.UseAccentColor = true;
+            btnProfilePicture.UseVisualStyleBackColor = true;
+            btnProfilePicture.Click += btnProfilePicture_Click;
             // 
             // lastName
             // 
@@ -97,8 +156,7 @@
             lastName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lastName.ForeColor = Color.White;
             lastName.Hint = "Last Name";
-            lastName.Location = new Point(469, 199);
-            lastName.Margin = new Padding(4);
+            lastName.Location = new Point(375, 159);
             lastName.MaxLength = 128;
             lastName.Multiline = false;
             lastName.Name = "lastName";
@@ -107,7 +165,7 @@
             lastName.SelectedText = "";
             lastName.SelectionLength = 0;
             lastName.SelectionStart = 0;
-            lastName.Size = new Size(426, 43);
+            lastName.Size = new Size(341, 38);
             lastName.TabIndex = 25;
             lastName.TabStop = false;
             lastName.UseSystemPasswordChar = false;
@@ -122,8 +180,7 @@
             userName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             userName.ForeColor = Color.Gainsboro;
             userName.Hint = "User Name";
-            userName.Location = new Point(42, 383);
-            userName.Margin = new Padding(4);
+            userName.Location = new Point(34, 306);
             userName.MaxLength = 128;
             userName.Multiline = false;
             userName.Name = "userName";
@@ -132,7 +189,7 @@
             userName.SelectedText = "";
             userName.SelectionLength = 0;
             userName.SelectionStart = 0;
-            userName.Size = new Size(532, 43);
+            userName.Size = new Size(426, 38);
             userName.TabIndex = 24;
             userName.TabStop = false;
             userName.UseSystemPasswordChar = false;
@@ -147,8 +204,7 @@
             email.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             email.ForeColor = Color.Gainsboro;
             email.Hint = "Email";
-            email.Location = new Point(42, 291);
-            email.Margin = new Padding(4);
+            email.Location = new Point(34, 233);
             email.MaxLength = 128;
             email.Multiline = false;
             email.Name = "email";
@@ -157,7 +213,7 @@
             email.SelectedText = "";
             email.SelectionLength = 0;
             email.SelectionStart = 0;
-            email.Size = new Size(853, 43);
+            email.Size = new Size(682, 38);
             email.TabIndex = 23;
             email.TabStop = false;
             email.UseSystemPasswordChar = false;
@@ -168,9 +224,10 @@
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Font = new Font("Segoe UI", 25.2F, FontStyle.Bold, GraphicsUnit.Point);
             bigLabel1.ForeColor = Color.White;
-            bigLabel1.Location = new Point(415, 62);
+            bigLabel1.Location = new Point(332, 50);
+            bigLabel1.Margin = new Padding(2, 0, 2, 0);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(180, 57);
+            bigLabel1.Size = new Size(146, 46);
             bigLabel1.TabIndex = 22;
             bigLabel1.Text = "Sign Up";
             // 
@@ -189,7 +246,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(823, 0);
+            nightControlBox1.Location = new Point(631, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -210,16 +267,16 @@
             btnSalvar.HighEmphasis = true;
             btnSalvar.Icon = null;
             btnSalvar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvar.Location = new Point(706, 541);
-            btnSalvar.Margin = new Padding(5, 8, 5, 8);
+            btnSalvar.Location = new Point(565, 476);
+            btnSalvar.Margin = new Padding(4, 6, 4, 6);
             btnSalvar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvar.Name = "btnSalvar";
             btnSalvar.NoAccentTextColor = Color.Empty;
-            btnSalvar.Size = new Size(189, 45);
+            btnSalvar.Size = new Size(151, 36);
             btnSalvar.TabIndex = 21;
             btnSalvar.Text = "Sign Up";
             btnSalvar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnSalvar.UseAccentColor = false;
+            btnSalvar.UseAccentColor = true;
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
@@ -233,8 +290,7 @@
             password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             password.ForeColor = Color.Gainsboro;
             password.Hint = "Password";
-            password.Location = new Point(609, 383);
-            password.Margin = new Padding(4);
+            password.Location = new Point(487, 306);
             password.MaxLength = 128;
             password.Multiline = false;
             password.Name = "password";
@@ -243,7 +299,7 @@
             password.SelectedText = "";
             password.SelectionLength = 0;
             password.SelectionStart = 0;
-            password.Size = new Size(286, 43);
+            password.Size = new Size(229, 38);
             password.TabIndex = 8;
             password.TabStop = false;
             password.UseSystemPasswordChar = false;
@@ -258,8 +314,7 @@
             firstName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             firstName.ForeColor = Color.White;
             firstName.Hint = "First Name";
-            firstName.Location = new Point(42, 199);
-            firstName.Margin = new Padding(4);
+            firstName.Location = new Point(34, 159);
             firstName.MaxLength = 128;
             firstName.Multiline = false;
             firstName.Name = "firstName";
@@ -268,7 +323,7 @@
             firstName.SelectedText = "";
             firstName.SelectionLength = 0;
             firstName.SelectionStart = 0;
-            firstName.Size = new Size(394, 43);
+            firstName.Size = new Size(315, 38);
             firstName.TabIndex = 7;
             firstName.TabStop = false;
             firstName.UseSystemPasswordChar = false;
@@ -279,11 +334,10 @@
             hopePictureBox1.BackColor = Color.Transparent;
             hopePictureBox1.Enabled = false;
             hopePictureBox1.Image = (Image)resources.GetObject("hopePictureBox1.Image");
-            hopePictureBox1.Location = new Point(273, 29);
-            hopePictureBox1.Margin = new Padding(4);
+            hopePictureBox1.Location = new Point(218, 23);
             hopePictureBox1.Name = "hopePictureBox1";
             hopePictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopePictureBox1.Size = new Size(99, 90);
+            hopePictureBox1.Size = new Size(79, 72);
             hopePictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             hopePictureBox1.TabIndex = 0;
             hopePictureBox1.TabStop = false;
@@ -291,19 +345,19 @@
             // 
             // Cadastro
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(966, 674);
+            ClientSize = new Size(773, 539);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "Cadastro";
             Text = "Here You Can Login";
             TransparencyKey = Color.Fuchsia;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -323,5 +377,8 @@
         private ReaLTaiizor.Controls.HopeTextBox userName;
         private ReaLTaiizor.Controls.HopeTextBox email;
         private ReaLTaiizor.Controls.HopeTextBox lastName;
+        private ReaLTaiizor.Controls.MaterialButton btnProfilePicture;
+        private PictureBox pictureBox;
+        private ReaLTaiizor.Controls.MaterialButton btnCancel;
     }
 }

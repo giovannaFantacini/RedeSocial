@@ -18,10 +18,10 @@ namespace RedeSocial.App.Login
         {
             _usuarioService = usuarioService;
             InitializeComponent();
-            #if DEBUG
+#if DEBUG
             email.Text = @"giovanna@mail.com";
             password.Text = @"123";
-            #endif
+#endif
         }
 
         private void Exibeformulario<TFormlario>() where TFormlario : Form
@@ -29,8 +29,6 @@ namespace RedeSocial.App.Login
             var cad = ConfigureDI.ServicesProvider!.GetService<TFormlario>();
             if (cad != null && !cad.IsDisposed)
             {
-                //this.Hide();
-                //cad.MdiParent = this;
                 cad.ShowDialog();
             }
         }

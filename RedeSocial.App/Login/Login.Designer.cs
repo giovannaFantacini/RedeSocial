@@ -42,7 +42,6 @@ namespace RedeSocial.App.Login
             panel2 = new Panel();
             btnsignUp = new ReaLTaiizor.Controls.MaterialButton();
             btnsignIn = new ReaLTaiizor.Controls.MaterialButton();
-            dungeonLinkLabel1 = new ReaLTaiizor.Controls.DungeonLinkLabel();
             password = new ReaLTaiizor.Controls.HopeTextBox();
             email = new ReaLTaiizor.Controls.HopeTextBox();
             hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
@@ -58,10 +57,9 @@ namespace RedeSocial.App.Login
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(nightControlBox1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(350, 0);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(280, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(743, 775);
+            panel1.Size = new Size(594, 620);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -79,7 +77,7 @@ namespace RedeSocial.App.Login
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(604, 0);
+            nightControlBox1.Location = new Point(483, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -108,15 +106,13 @@ namespace RedeSocial.App.Login
             panel2.BackColor = Color.FromArgb(4, 12, 45);
             panel2.Controls.Add(btnsignUp);
             panel2.Controls.Add(btnsignIn);
-            panel2.Controls.Add(dungeonLinkLabel1);
             panel2.Controls.Add(password);
             panel2.Controls.Add(email);
             panel2.Controls.Add(hopePictureBox1);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(350, 775);
+            panel2.Size = new Size(280, 620);
             panel2.TabIndex = 1;
             // 
             // btnsignUp
@@ -131,12 +127,12 @@ namespace RedeSocial.App.Login
             btnsignUp.HighEmphasis = true;
             btnsignUp.Icon = null;
             btnsignUp.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnsignUp.Location = new Point(32, 686);
-            btnsignUp.Margin = new Padding(5, 8, 5, 8);
+            btnsignUp.Location = new Point(26, 517);
+            btnsignUp.Margin = new Padding(4, 6, 4, 6);
             btnsignUp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnsignUp.Name = "btnsignUp";
             btnsignUp.NoAccentTextColor = Color.Empty;
-            btnsignUp.Size = new Size(279, 45);
+            btnsignUp.Size = new Size(223, 36);
             btnsignUp.TabIndex = 21;
             btnsignUp.Text = "Sign Up";
             btnsignUp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -156,36 +152,18 @@ namespace RedeSocial.App.Login
             btnsignIn.HighEmphasis = true;
             btnsignIn.Icon = null;
             btnsignIn.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnsignIn.Location = new Point(32, 553);
-            btnsignIn.Margin = new Padding(5, 8, 5, 8);
+            btnsignIn.Location = new Point(26, 404);
+            btnsignIn.Margin = new Padding(4, 6, 4, 6);
             btnsignIn.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnsignIn.Name = "btnsignIn";
             btnsignIn.NoAccentTextColor = Color.Empty;
-            btnsignIn.Size = new Size(279, 45);
+            btnsignIn.Size = new Size(223, 36);
             btnsignIn.TabIndex = 20;
             btnsignIn.Text = "Sign In";
             btnsignIn.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnsignIn.UseAccentColor = true;
             btnsignIn.UseVisualStyleBackColor = true;
             btnsignIn.Click += btnsignIn_Click;
-            // 
-            // dungeonLinkLabel1
-            // 
-            dungeonLinkLabel1.ActiveLinkColor = Color.FromArgb(221, 72, 20);
-            dungeonLinkLabel1.Anchor = AnchorStyles.Right;
-            dungeonLinkLabel1.AutoSize = true;
-            dungeonLinkLabel1.BackColor = Color.Transparent;
-            dungeonLinkLabel1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            dungeonLinkLabel1.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            dungeonLinkLabel1.LinkColor = Color.Silver;
-            dungeonLinkLabel1.Location = new Point(196, 432);
-            dungeonLinkLabel1.Margin = new Padding(4, 0, 4, 0);
-            dungeonLinkLabel1.Name = "dungeonLinkLabel1";
-            dungeonLinkLabel1.Size = new Size(151, 25);
-            dungeonLinkLabel1.TabIndex = 18;
-            dungeonLinkLabel1.TabStop = true;
-            dungeonLinkLabel1.Text = "Forgot Password";
-            dungeonLinkLabel1.VisitedLinkColor = Color.FromArgb(240, 119, 70);
             // 
             // password
             // 
@@ -197,8 +175,7 @@ namespace RedeSocial.App.Login
             password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             password.ForeColor = Color.Gainsboro;
             password.Hint = "Password";
-            password.Location = new Point(12, 360);
-            password.Margin = new Padding(4);
+            password.Location = new Point(10, 288);
             password.MaxLength = 128;
             password.Multiline = false;
             password.Name = "password";
@@ -207,7 +184,7 @@ namespace RedeSocial.App.Login
             password.SelectedText = "";
             password.SelectionLength = 0;
             password.SelectionStart = 0;
-            password.Size = new Size(325, 43);
+            password.Size = new Size(260, 38);
             password.TabIndex = 8;
             password.TabStop = false;
             password.UseSystemPasswordChar = false;
@@ -222,8 +199,7 @@ namespace RedeSocial.App.Login
             email.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             email.ForeColor = Color.Gainsboro;
             email.Hint = "Email";
-            email.Location = new Point(12, 293);
-            email.Margin = new Padding(4);
+            email.Location = new Point(10, 234);
             email.MaxLength = 128;
             email.Multiline = false;
             email.Name = "email";
@@ -232,7 +208,7 @@ namespace RedeSocial.App.Login
             email.SelectedText = "";
             email.SelectionLength = 0;
             email.SelectionStart = 0;
-            email.Size = new Size(325, 43);
+            email.Size = new Size(260, 38);
             email.TabIndex = 7;
             email.TabStop = false;
             email.UseSystemPasswordChar = false;
@@ -243,11 +219,10 @@ namespace RedeSocial.App.Login
             hopePictureBox1.BackColor = Color.Transparent;
             hopePictureBox1.Enabled = false;
             hopePictureBox1.Image = (Image)resources.GetObject("hopePictureBox1.Image");
-            hopePictureBox1.Location = new Point(112, 52);
-            hopePictureBox1.Margin = new Padding(4);
+            hopePictureBox1.Location = new Point(90, 42);
             hopePictureBox1.Name = "hopePictureBox1";
             hopePictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopePictureBox1.Size = new Size(120, 120);
+            hopePictureBox1.Size = new Size(96, 96);
             hopePictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             hopePictureBox1.TabIndex = 0;
             hopePictureBox1.TabStop = false;
@@ -255,20 +230,18 @@ namespace RedeSocial.App.Login
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1093, 775);
+            ClientSize = new Size(874, 620);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
-            Margin = new Padding(4);
             Name = "Login";
             Text = "Here You Can Login";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -284,7 +257,6 @@ namespace RedeSocial.App.Login
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private ReaLTaiizor.Controls.HopeTextBox email;
         private ReaLTaiizor.Controls.HopeTextBox password;
-        private ReaLTaiizor.Controls.DungeonLinkLabel dungeonLinkLabel1;
         private ReaLTaiizor.Controls.MaterialButton btnsignUp;
         private ReaLTaiizor.Controls.MaterialButton btnsignIn;
     }

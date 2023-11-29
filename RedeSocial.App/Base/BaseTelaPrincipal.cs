@@ -7,10 +7,12 @@ using RedeSocial.App.Infra;
 using RedeSocial.App.Login;
 using RedeSocial.App.Model;
 using RedeSocial.App.Models;
+using RedeSocial.App.Service;
 using RedeSocial.Domain.Base;
 using RedeSocial.Domain.Entities;
 using RedeSocial.Service.Validators;
 using System;
+using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 using Button = ReaLTaiizor.Controls.Button;
 
@@ -41,8 +43,6 @@ namespace RedeSocial.App
             InicializaFriendsPage();
             InicializarHomeView();
 
-            label_name.Text = Usuario.NomeUsuario;
-
 
         }
         #endregion
@@ -65,6 +65,21 @@ namespace RedeSocial.App
 
         private void InicializarProfileView()
         {
+            label_name.Text = Usuario.NomeUsuario;
+            byte[] dadosImagem = Usuario.FotoPerfil;
+            if (dadosImagem != null && dadosImagem.Length > 0)
+            {
+                Image imagemCarregada = ImageService.ByteArrayParaImagem(dadosImagem);
+                Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemCarregada, pictureBoxUser.Width, pictureBoxUser.Height);
+                pictureBoxUser.Image = imagemRedimensionada;
+            }
+            else
+            {
+                Image imagemOriginal = Image.FromFile("C:/Users/Giova/OneDrive - ifsp.edu.br/Imagens/Profile/imgPadrao.jpg");
+                Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemOriginal, pictureBoxUser.Width, pictureBoxUser.Height);
+                pictureBoxUser.Image = imagemRedimensionada;
+            }
+
             var postagens = _postService.Get<Postagem>(new[] { "Usuario" }).Where(x => x.Usuario.Id == Usuario.Id).ToList().OrderByDescending(x => x.DataHoraPostagem);
             foreach (var postagem in postagens)
             {
@@ -77,13 +92,19 @@ namespace RedeSocial.App
                 post.btn_comentar.Click += btn_comment_Click;
                 post.btnExcluir.Tag = postagem;
                 post.btnExcluir.Click += btn_delete_post;
+                post.lbldataEHora.Text = postagem.DataHoraPostagem.ToString("dd/MM/yyyy HH:mm:ss");
 
                 if (!verifica_curtitda(postagem))
                 {
                     post.btn_curtir.Enabled = false;
                 }
 
-
+                if (dadosImagem != null && dadosImagem.Length > 0)
+                {
+                    Image imagemCarregada = ImageService.ByteArrayParaImagem(dadosImagem);
+                    Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemCarregada, pictureBoxUser.Width, pictureBoxUser.Height);
+                    pictureBoxUser.Image = imagemRedimensionada;
+                }
 
                 post.btn_curtir.Text = $"{cont_curtidas(postagem)} Curtir";
 
@@ -106,8 +127,7 @@ namespace RedeSocial.App
             var post1 = (Postagem)((System.Windows.Forms.Button)sender).Tag;
             delete_curtidas_comments(post1);
             _postService.Delete(post1.Id);
-            limpa_pagina(flowLayoutPanelProfile);
-            InicializarProfileView();
+            atualiza_paginas();
 
         }
 
@@ -121,8 +141,11 @@ namespace RedeSocial.App
 
         private void InicializarHomeView()
         {
-
-            var postagens = _postService.Get<Postagem>(new[] { "Usuario" }).Where(x => x.Usuario.Id != Usuario.Id).ToList().OrderByDescending(x => x.DataHoraPostagem);
+            var amigos = _amizadeService.Get<Amizade>(new[] { "Usuario1", "Usuario2" }).Where(x => x.Usuario1!.Id == Usuario.Id).ToList();
+            var postagens = _postService.Get<Postagem>(new[] { "Usuario" })
+                .Where(x => amigos.Any(amigo => x.Usuario.Id == amigo.Usuario2.Id))
+                .OrderByDescending(x => x.DataHoraPostagem)
+                .ToList();
             foreach (var postagem in postagens)
             {
                 Componentes.ComponentePostagem post = new Componentes.ComponentePostagem();
@@ -133,12 +156,21 @@ namespace RedeSocial.App
                 post.btn_curtir.Click += btn_curtir_Click;
                 post.btn_comentar.Click += btn_comment_Click;
                 post.btnExcluir.Visible = false;
+                post.lbldataEHora.Text = postagem.DataHoraPostagem.ToString("dd/MM/yyyy HH:mm:ss");
 
                 if (!verifica_curtitda(postagem))
                 {
                     post.btn_curtir.Enabled = false;
                 }
 
+                byte[] dadosImagem = postagem.Usuario.FotoPerfil;
+
+                if (dadosImagem != null && dadosImagem.Length > 0)
+                {
+                    Image imagemCarregada = ImageService.ByteArrayParaImagem(dadosImagem);
+                    Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemCarregada, post.pictureBox.Width, post.pictureBox.Height);
+                    post.pictureBox.Image = imagemRedimensionada;
+                }
 
 
                 post.btn_curtir.Text = $"{cont_curtidas(postagem)} Curtir";
@@ -175,10 +207,7 @@ namespace RedeSocial.App
             };
 
             _curtidaService.Add<Curtida, Curtida, CurtidaValidator>(curtida);
-            limpa_pagina(flowLayoutPanelProfile);
-            limpa_pagina(flowLayoutPanel);
-            InicializarProfileView();
-            InicializarHomeView();
+            atualiza_paginas();
 
         }
 
@@ -187,8 +216,7 @@ namespace RedeSocial.App
         {
             InputDialogPost.Usuario = Usuario;
             Exibeformulario<InputDialogPost>();
-            limpa_pagina(flowLayoutPanelProfile);
-            InicializarProfileView();
+            atualiza_paginas();
 
         }
 
@@ -250,8 +278,7 @@ namespace RedeSocial.App
 
             _amizadeService.Delete(amizade.Id);
 
-            limpa_pagina(PanelMyFriends);
-            InicializaFriendsPage();
+            atualiza_paginas();
         }
 
         private void limpa_pagina(FlowLayoutPanel fl)
@@ -273,14 +300,27 @@ namespace RedeSocial.App
 
                 _amizadeService.Add<Amizade, Amizade, AmizadeValidator>(amizade);
 
-                limpa_pagina(flowLayoutPanelFriends);
-                InicializaFriendsPage();
+                atualiza_paginas();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, @"Rede Social", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void atualiza_paginas()
+        {
+            limpa_pagina(flowLayoutPanelFriends);
+            limpa_pagina(PanelMyFriends);
+            InicializaFriendsPage();
+
+            limpa_pagina(flowLayoutPanel);
+            InicializarHomeView();
+
+            limpa_pagina(flowLayoutPanelProfile);
+            InicializarProfileView();
 
         }
 

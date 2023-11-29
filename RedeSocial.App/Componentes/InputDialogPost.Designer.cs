@@ -98,7 +98,7 @@
             btnCancel.Icon = null;
             btnCancel.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             btnCancel.Location = new Point(152, 166);
-            btnCancel.Margin = new Padding(4, 4, 4, 4);
+            btnCancel.Margin = new Padding(4);
             btnCancel.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancel.Name = "btnCancel";
             btnCancel.NoAccentTextColor = Color.Empty;
@@ -123,6 +123,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "InputDialogPost";
             Padding = new Padding(3, 48, 3, 2);
+            StartPosition = FormStartPosition.CenterParent;
             Text = "New Post";
             TransparencyKey = Color.FromArgb(64, 64, 64);
             ResumeLayout(false);
