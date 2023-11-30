@@ -22,6 +22,7 @@ namespace RedeSocial.App
     {
         #region Construtor
         public static Usuario Usuario { get; set; }
+        bool logado = false;
 
         private readonly IBaseService<Postagem> _postService;
         private readonly IBaseService<Amizade> _amizadeService;
@@ -33,7 +34,8 @@ namespace RedeSocial.App
             IBaseService<Comentario> commentService)
         {
             InitializeComponent();
-            Exibeformulario<Login.Login>();
+            ExibeformularioLogin<Login.Login>();
+            logado = true;
             _postService = potService;
             _amizadeService = amizadeService;
             _usuarioService = usuarioService;
@@ -56,10 +58,30 @@ namespace RedeSocial.App
                 {
                     form.Close();
                 }
+
+            }
+        }
+
+        private void ExibeformularioLogin<TFormlario>() where TFormlario : Form
+        {
+            var form = ConfigureDI.ServicesProvider!.GetService<TFormlario>();
+            if (form != null && !form.IsDisposed)
+            {
+                if (form.ShowDialog() != DialogResult.OK)
+                {
+                    Environment.Exit(0);
+                }
                 else
                 {
-
+                    this.Show();
+                    if (logado)
+                    {
+                        atualiza_paginas();
+                    }
+                    // atualiza_paginas();
                 }
+                
+              
             }
         }
 
@@ -254,6 +276,16 @@ namespace RedeSocial.App
                     amizade.btnAddFriend.Click += Add_friend;
                     amizade.btnRemove.Visible = false;
 
+                    byte[] dadosImagem = usuario.FotoPerfil;
+
+                    if (dadosImagem != null && dadosImagem.Length > 0)
+                    {
+                        Image imagemCarregada = ImageService.ByteArrayParaImagem(dadosImagem);
+                        Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemCarregada, amizade.pictureBox.Width, amizade.pictureBox.Height);
+                        amizade.pictureBox.Image = imagemRedimensionada;
+                    }
+
+
                     flowLayoutPanelFriends.Controls.Add(amizade);
 
                 }
@@ -264,6 +296,16 @@ namespace RedeSocial.App
                     amizade.btnRemove.Tag = amizade_user;
                     amizade.btnRemove.Click += Remove_friend;
                     amizade.btnAddFriend.Visible = false;
+
+                    byte[] dadosImagem = usuario.FotoPerfil;
+
+                    if (dadosImagem != null && dadosImagem.Length > 0)
+                    {
+                        Image imagemCarregada = ImageService.ByteArrayParaImagem(dadosImagem);
+                        Image imagemRedimensionada = ImageService.RedimensionarImagem(imagemCarregada, amizade.pictureBox.Width, amizade.pictureBox.Height);
+                        amizade.pictureBox.Image = imagemRedimensionada;
+                    }
+
 
                     PanelMyFriends.Controls.Add(amizade);
                 }
@@ -324,6 +366,11 @@ namespace RedeSocial.App
 
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ExibeformularioLogin<Login.Login>();
+        }
     }
 
 }

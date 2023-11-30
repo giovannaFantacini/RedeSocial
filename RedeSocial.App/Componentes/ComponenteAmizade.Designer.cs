@@ -39,9 +39,9 @@
             // 
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUserName.Location = new Point(101, 25);
+            lblUserName.Location = new Point(115, 33);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(76, 32);
+            lblUserName.Size = new Size(96, 41);
             lblUserName.TabIndex = 0;
             lblUserName.Text = "label1";
             // 
@@ -53,8 +53,8 @@
             btnAddFriend.HighEmphasis = true;
             btnAddFriend.Icon = null;
             btnAddFriend.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnAddFriend.Location = new Point(437, 21);
-            btnAddFriend.Margin = new Padding(4, 6, 4, 6);
+            btnAddFriend.Location = new Point(499, 28);
+            btnAddFriend.Margin = new Padding(5, 8, 5, 8);
             btnAddFriend.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddFriend.Name = "btnAddFriend";
             btnAddFriend.NoAccentTextColor = Color.Empty;
@@ -73,8 +73,8 @@
             btnRemove.HighEmphasis = true;
             btnRemove.Icon = null;
             btnRemove.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnRemove.Location = new Point(437, 21);
-            btnRemove.Margin = new Padding(4, 6, 4, 6);
+            btnRemove.Location = new Point(499, 28);
+            btnRemove.Margin = new Padding(5, 8, 5, 8);
             btnRemove.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnRemove.Name = "btnRemove";
             btnRemove.NoAccentTextColor = Color.Empty;
@@ -87,22 +87,24 @@
             // 
             // pictureBox
             // 
-            pictureBox.Location = new Point(20, 18);
+            pictureBox.Location = new Point(23, 24);
+            pictureBox.Margin = new Padding(3, 4, 3, 4);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(53, 50);
+            pictureBox.Size = new Size(61, 67);
             pictureBox.TabIndex = 3;
             pictureBox.TabStop = false;
             // 
             // ComponenteAmizade
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pictureBox);
             Controls.Add(btnRemove);
             Controls.Add(btnAddFriend);
             Controls.Add(lblUserName);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ComponenteAmizade";
-            Size = new Size(531, 82);
+            Size = new Size(607, 109);
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -113,6 +115,6 @@
         public Label lblUserName;
         public ReaLTaiizor.Controls.MaterialButton btnAddFriend;
         public ReaLTaiizor.Controls.MaterialButton btnRemove;
-        private PictureBox pictureBox;
+        public PictureBox pictureBox;
     }
 }

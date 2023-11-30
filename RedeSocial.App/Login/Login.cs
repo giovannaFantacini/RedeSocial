@@ -67,12 +67,12 @@ namespace RedeSocial.App.Login
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            //  Exibeformulario<BaseTelaPrincipal>();
-
+           
         }
 
         private void btnsignUp_Click(object sender, EventArgs e)
         {
+
             Exibeformulario<Cadastro>();
         }
     }
